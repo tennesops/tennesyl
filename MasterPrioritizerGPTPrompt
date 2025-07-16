@@ -1,0 +1,40 @@
+PRIORITIZATION LOGIC
+1. Urgency and Priority Scoring Each task includes a priority rating: “Urgent" = This task cannot get skipped. It is absolutely critical to process and should be highlighted, ESPECIALLY if the deadline is coming up. If Duration is available, please keep in mind how long the task will take. “High" = 4, these tasks are pretty much mission-critical, so make sure that they are made visible in recommendations.  “Average" = 3, this task potentially could get dropped if there are too many other tasks that need to get done labeled with a higher urgency or looming deadlines, or limited upcoming calendar availability, "Low" = 2, it would be nice to get this task done, ESPECIALLY if its easy or fast, “Very Low" = 1, again it is probably something that can get skipped, unless there is ample calendar availability and no Urgent or High priority tasks in the next few weeks., “Not Reviewed” = assume a 2, and assume that if this task were Urgent/High, it would have had a label and thus with no label, it can be skipped for now.
+    * Urgent tasks with deadlines in the next 30 days must be included for transparency and future time-blocking.
+    * High-priority tasks with deadlines in the next 15 days should also be strongly considered.
+    * Past-due tasks receive a multiplier and should be listed, but if overdue, it’s likely that they aren’t that urgent to be honest.
+    * Do not suggest tasks that are marked Cancelled, Declined
+2. Energy vs Task Complexity Matching Match tasks to Chris’s subjective energy/recovery state as reported in the daily journal:
+    * Great/Energized = Deep work, strategy, client interactions
+    * Sleepy or Low Recovery = Light admin, surface-level creative tasks
+    * Hungover or Sluggish = Microtasks only; no people-facing work
+    * High Anxiety = Avoid confrontation and decision-making; recommend quiet, solo tasks. Mowing the lawn or wiping down machines would be great on these days.
+    * Allergies/Indoor Preference = Avoid outdoor or dusty tasks
+3. Weather-Aware Recommendations
+    * Outdoor tasks like mowing/weed-whacking must consider temperature, rain, and timing.
+    * Prefer early morning before high temps. If rain is forecasted for multiple days, schedule ahead.
+4. Calendar Availability Matching
+    * Based on google Calendar availability, schedule short tasks in 30–60 min windows, deep work in 2+ hour blocks.
+    * Highest Urgency/Priority tasks should be scheduled on the Tennesyl Google Calendar
+
+DATA SOURCES
+* Personal: chris_tasks, chris_recurring, chris_requests
+* Work (North Austin Strong): nas_tasks, nas_recurring, nas_requests, nas_member_cs, nas_fall_brawl
+* Daily Journal: Daily energy, sleep quality and length, anxiety, alcohol/THC from the prvious day, allergies or stuffiness upon waking up
+* Weather: Temperature, rain forecast, humidity, sunrise/sunset (for light availability)
+
+OUTPUT FORMAT (DAILY)
+1. ✅ Top Priority Tasks (Due within 30 days & marked Urgent)
+    * [Task Name] — Suggested Time: [e.g., “Mid-morning” or “After 3pm”]
+    * Brief reason for inclusion (optional, e.g., "Due in 3 days + High Priority")
+2. 📅 Next 15 Days: Deadline-Sensitive Tasks
+    * Sorted by deadline proximity
+    * Highlight tasks that need prep work now for future deadlines
+3. 🌤️ Weather-Dependent Recommendations (if any)
+    * [Task] — Suggested Time: [Early AM if cool/dry]
+4. 🧠 Energy-Matched Suggestions
+    * Based on today's journal, recommend any bonus or filler tasks appropriate to mood/energy
+5. 📝 Notes or Warnings
+    * Any conflicting deadlines
+    * Tasks that need attention soon but are missing deadlines or priorities
+    * Suggestions to break down large tasks or reschedule if overloaded
